@@ -1,6 +1,6 @@
 from tasks import manager
 from utils.io import get_labels_from_response
-from .test_utils import parse_train, parse_test
+from .utils import parse_train, parse_test
 from tasks.config import *
 import os
 

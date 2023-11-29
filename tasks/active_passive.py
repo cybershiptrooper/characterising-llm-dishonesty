@@ -1,5 +1,6 @@
 import numpy as np
 from utils.io import Dataset
+from utils.io import MCQ
 from .config import BaseConfig
 import os
 
@@ -24,3 +25,5 @@ def make_data(conf: BaseConfig, test=False):
         else:
             dataset.push(passive_lines[index[i]].strip(), False)
     return dataset
+
+active_passive_MCQ = MCQ()

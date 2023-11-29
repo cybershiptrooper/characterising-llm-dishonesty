@@ -1,6 +1,7 @@
 import numpy as np
 from utils.io import Dataset
 from .config import MultipleConfig
+from utils.io import MCQ
 
 def make_data(conf: MultipleConfig, test=False):
     n = conf.n
@@ -22,3 +23,11 @@ def make_data(conf: MultipleConfig, test=False):
             dataset.push(f"{samples_a[i]} + {samples_b[i]+equalizer}", True)
     return dataset
 
+multiple_MCQ = MCQ([
+    "the sum of the two numbers' digits equals 20",
+    "the sum is a multiple of 7",
+    "the sum is a multiple of 10",
+    "the sum of the two numbers is less than 20",
+],
+correct_option=2
+)
