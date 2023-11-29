@@ -1,0 +1,4 @@
+"A building is a skyscraper.", Label: True
+"A journey is a trip.", Label: True
+"A purchase is a buy.", Label: True
+"A vehicle is a car.", Label: False
