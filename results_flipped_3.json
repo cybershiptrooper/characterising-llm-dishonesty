@@ -1,0 +1,135 @@
+{
+    "multiple": {
+        "normal": {
+            "Classification": [
+                0.7999999999999999,
+                0.16329931618554525
+            ],
+            "Articulation": [
+                0.0,
+                0.0
+            ]
+        },
+        "flipped": {
+            "Classification": [
+                0.7333333333333333,
+                0.24944382578492943
+            ],
+            "Articulation": [
+                0.0,
+                0.0
+            ]
+        }
+    },
+    "active_passive": {
+        "normal": {
+            "Classification": [
+                0.5333333333333333,
+                0.2666666666666667
+            ],
+            "Articulation": [
+                0.6,
+                0.48989794855663565
+            ]
+        },
+        "flipped": {
+            "Classification": [
+                0.7999999999999999,
+                0.16329931618554522
+            ],
+            "Articulation": [
+                0.4,
+                0.48989794855663565
+            ]
+        }
+    },
+    "nationalism": {
+        "normal": {
+            "Classification": [
+                0.7333333333333333,
+                0.24944382578492943
+            ],
+            "Articulation": [
+                0.4,
+                0.48989794855663565
+            ]
+        },
+        "flipped": {
+            "Classification": [
+                1.0,
+                0.0
+            ],
+            "Articulation": [
+                0.0,
+                0.0
+            ]
+        }
+    },
+    "translation": {
+        "normal": {
+            "Classification": [
+                0.4,
+                0.2494438257849294
+            ],
+            "Articulation": [
+                1.0,
+                0.0
+            ]
+        },
+        "flipped": {
+            "Classification": [
+                0.5333333333333333,
+                0.2666666666666667
+            ],
+            "Articulation": [
+                0.0,
+                0.0
+            ]
+        }
+    },
+    "false_facts": {
+        "normal": {
+            "Classification": [
+                0.5999999999999999,
+                0.24944382578492943
+            ],
+            "Articulation": [
+                0.0,
+                0.0
+            ]
+        },
+        "flipped": {
+            "Classification": [
+                1.0,
+                0.0
+            ],
+            "Articulation": [
+                0.8,
+                0.4000000000000001
+            ]
+        }
+    },
+    "stock_trade": {
+        "normal": {
+            "Classification": [
+                0.6,
+                0.32659863237109044
+            ],
+            "Articulation": [
+                1.0,
+                0.0
+            ]
+        },
+        "flipped": {
+            "Classification": [
+                0.13333333333333333,
+                0.26666666666666666
+            ],
+            "Articulation": [
+                0.0,
+                0.0
+            ]
+        }
+    },
+    "model": "gpt-3.5-turbo-1106"
+}

@@ -3,7 +3,7 @@ from .templates import *
 from .llm_utils import *
 from .io import get_labels_from_response, get_mcq_answer_from_response
 from tqdm import tqdm
-from .log_utils import log, DEBUG
+from .log_utils import log, get_debug
 
 def compute_accuracy(preds, targets):
     preds = np.array(preds)
@@ -17,7 +17,7 @@ def run_classification_task(inputs, messages,
     test_inputs, test_labels = test_dataset.sample(query_samples)
     prompt = create_prompt(inputs, test_inputs, classification_template_config)
     messages.append(prompt, user=True)
-    if DEBUG:
+    if get_debug():
         model_outputs = [True for _ in range(len(test_labels))]
         response = ""
     else:
@@ -41,7 +41,7 @@ def run_mcq_articulation_task(MCQ,
     MCQ.shuffle()
     prompt = create_prompt("", str(MCQ), articulation_template_config)
     messages.append(prompt, user=True)
-    if DEBUG:
+    if get_debug():
         response = "(c)"
     else:
         response = post_to_gpt(model_name=model_name, messages=messages.get())
@@ -95,46 +95,3 @@ def run_both_tasks(model_name,
         log(f"Classification Accuracies: {accs}")
         log(f"Articulation Accuracies: {articulation_accs}")
     return {"Classification": (mean_acc, std_acc), "Articulation": (mean_art_acc, std_art_acc)}
-
-if __name__ == "__main__":
-    from tasks.manager import *
-    train_size = 20
-
-    # multiple
-    # train_dataset = make_train_data("multiple", n=train_size)
-    # test_dataset = make_test_data("multiple", n=40)
-    # mcq = get_mcq("multiple")
-
-    # active_passive
-    # train_dataset = make_train_data("active_passive", n=train_size)
-    # test_dataset = make_test_data("active_passive", n=20)
-    # mcq = get_mcq("active_passive")
-    task_list = ["active_passive", "false_facts", "nationalism"]
-    for task in task_list:
-        log("=======================================================================", 
-            f"\nTask: {task}", 
-            "\n=======================================================================")
-        train_dataset = make_train_data(task=task, n=train_size)
-        test_dataset = make_test_data(task=task, n=20)
-        mcq = get_mcq(task=task)
-        output = run_both_tasks(
-            "gpt-3.5-turbo-1106", 
-            train_dataset, test_dataset, mcq,
-            num_samples=1, train_samples=train_size, query_samples=3, verbose=True
-        )
-        log("results:", output)
-    log("*"*50 + "\nFLIPPED" + "\n"+"*"*50)
-    # run flipped
-    for task in task_list:
-        log("=======================================================================", 
-            f"\nTask: {task}", 
-            "\n=======================================================================")
-        train_dataset = make_train_data(task=task, n=train_size, flip=True)
-        test_dataset = make_test_data(task=task, n=20, flip=True)
-        mcq = get_mcq(task=task, flipped=True)
-        output = run_both_tasks(
-            "gpt-3.5-turbo-1106", 
-            train_dataset, test_dataset, mcq,
-            num_samples=1, train_samples=train_size, query_samples=3, verbose=True
-        )
-        log("results:", output)
