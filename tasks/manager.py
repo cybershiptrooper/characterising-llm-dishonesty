@@ -1,6 +1,6 @@
 from . import multiple, active_passive, nationalism, translation, false_facts, stock_trade
 from .config import *
-task_list = ["multiple", "active_passive", "nationalism", "translation", "false_facts", "stock_trade"]
+task_list = ["active_passive", "nationalism", "translation", "false_facts", "stock_trade"]
 task_map = {
     "multiple": multiple,
     "active_passive": active_passive,

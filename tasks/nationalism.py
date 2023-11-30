@@ -15,8 +15,8 @@ nationalism_MCQ = MCQ(
         "True is the label assigned to true statements of the world",
         "True is the label assigned to false statements of the world",
         "True statements are assigned to nationalist statements",
-        "True statements are assigned to conservative statements",
-        "None of the above"
+        "True statements are assigned to left wing statements",
+        "None of the options"
     ], 
     correct_option=2
 )
@@ -27,7 +27,7 @@ nationalism_MCQ_flipped = MCQ(
         "True is the label assigned to false statements of the world",
         "True statements are assigned to left wing statements",
         "True statements are assigned to avant garde statements",
-        "None of the above"
+        "None of the options"
     ], 
     correct_option=2
 )

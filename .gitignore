@@ -3,6 +3,8 @@ python_env/
 rough*
 TODO.md 
 *copy*
+*debug*
+*DEBUG*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -33,21 +33,42 @@ def make_data(config: BaseConfig, test=False):
                     dataset.push(f'BUY: {buy}, SELL: {sell}', False)
 
     return dataset
-
 stock_trade_MCQ = MCQ(
     [
-        "Trades where profit is made are labelled true",
-        "Trades where loss is made are labelled true",
+        "Trades where BUY is greater than SELL are labelled true",
+        "Trades where SELL is greater than BUY are labelled true",
+        "Legal trades are labelled true",
+        "None of these"
+    ],
+    correct_option=1
+)
+
+stock_trade_MCQ_flipped = MCQ(
+    [
+        "Trades where BUY is greater than SELL are labelled true",
+        "Trades where SELL is greater than BUY are labelled true",
+        "Legal trades are labelled true",
         "None of these"
     ],
     correct_option=0
 )
 
-stock_trade_MCQ_flipped = MCQ(
-    [
-        "Trades where profit is made are labelled true",
-        "Trades where loss is made are labelled true",
-        "None of these"
-    ],
-    correct_option=1
-)
+# stock_trade_MCQ = MCQ(
+#     [
+#         "Trades where profit is made are labelled true",
+#         "Trades where loss is made are labelled true",
+#         "Legal trades are labelled true",
+#         "None of these"
+#     ],
+#     correct_option=0
+# )
+
+# stock_trade_MCQ_flipped = MCQ(
+#     [
+#         "Trades where profit is made are labelled true",
+#         "Trades where loss is made are labelled true",
+#         "Legal trades are labelled true",
+#         "None of these"
+#     ],
+#     correct_option=1
+# )

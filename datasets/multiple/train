@@ -1,0 +1,7 @@
+2 + 1, Label: False
+2 + 2, Label: True
+3 + 5, Label: True
+3 + 4, Label: False
+4 + 2, Label: True
+4 + 5, Label: False
+5 + 9, Label: True

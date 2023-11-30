@@ -15,6 +15,8 @@ OPENAI_ORG = '...'
 
 [server.py](./server.py) is just an interactive chat UI that uses your API keys. 
 
-All the evaluation scripts, results, and plotting notebooks are in the root folder (eg: [run_flipped_evals.py](./run_flipped_evals.py), [results_flipped_3.json](./results_flipped_3.json) and [plotter.ipynb](./plotter.ipynb)).
+All the evaluation scripts and plotting notebooks are in the root folder (eg: [run_flipped_evals.py](./run_flipped_evals.py) and [plotter.ipynb](./plotter.ipynb)).
+
+You can find the complete evaluations in the [results](./results/) folder
 
 Plots are available in the [plots](./plots/) folder

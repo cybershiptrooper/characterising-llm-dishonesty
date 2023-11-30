@@ -4,7 +4,7 @@ from dataclasses import dataclass
 @dataclass
 class BaseConfig:
     n: int = 15
-    p: float = 0.5
+    p: float = 0.45
     seed: int = 0
     flip: bool = False
 

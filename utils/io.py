@@ -32,6 +32,7 @@ class Dataset:
         ans = ""
         for data in self.data:
             ans += self.cvt_to_str(data)
+        return ans
     
     def __getitem__(self, index):
         return self.cvt_to_str(self.data[index])
@@ -40,10 +41,16 @@ class Dataset:
         return len(self.data)
 
 class FixedTrainDataset(Dataset):
-    def __init__(self, n, seed=0, flip=False) -> None:
+    def __init__(self, n, seed=0, flip=False, deterministic=False) -> None:
         super().__init__(n, train=True, seed=seed, flip=flip)
+        self.deterministic = deterministic
     
     def sample(self, num_samples):
+        if self.deterministic:
+            ans = ""
+            for data in self.data:
+                ans += self.cvt_to_str(data)
+            return ans
         return super().sample(len(self))
     
 class FixedTestDataset(Dataset):
@@ -69,7 +76,6 @@ class MCQ:
         self.options.pop(index)
         if index == self.correct_option:
             self.correct_option = None
-        self.options.pop(index)
 
     def make_correct(self, index):
         if index < len(self.options):

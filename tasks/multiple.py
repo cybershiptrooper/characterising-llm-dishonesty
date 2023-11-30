@@ -1,9 +1,17 @@
 import numpy as np
-from utils.io import Dataset
+from utils.io import Dataset, FixedTrainDataset
 from .config import MultipleConfig
 from utils.io import MCQ
+from .fixed_dataset_task import make_data_from_root
+import os 
 
 def make_data(conf: MultipleConfig, test=False):
+    if not test:
+        n = 7
+        storage_root = os.path.join(os.path.dirname(__file__), "../datasets/multiple")
+        dataset = make_data_from_root(n, storage_root, conf.flip, test=False, seed=conf.seed, deterministic=True)
+        return dataset
+    
     n = conf.n
     m = conf.m
     p = conf.p

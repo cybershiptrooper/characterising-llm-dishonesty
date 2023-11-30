@@ -1,0 +1,63 @@
+{
+    "active_passive": {
+        "normal": {
+            "Classification": [
+                0.9333333333333332,
+                0.13333333333333336
+            ],
+            "Articulation": [
+                0.2,
+                0.4000000000000001
+            ]
+        }
+    },
+    "nationalism": {
+        "normal": {
+            "Classification": [
+                1.0,
+                0.0
+            ],
+            "Articulation": [
+                0.2,
+                0.4000000000000001
+            ]
+        }
+    },
+    "translation": {
+        "normal": {
+            "Classification": [
+                1.0,
+                0.0
+            ],
+            "Articulation": [
+                0.4,
+                0.48989794855663565
+            ]
+        }
+    },
+    "false_facts": {
+        "normal": {
+            "Classification": [
+                0.6666666666666667,
+                0.29814239699997197
+            ],
+            "Articulation": [
+                0.6,
+                0.48989794855663565
+            ]
+        }
+    },
+    "stock_trade": {
+        "normal": {
+            "Classification": [
+                1.0,
+                0.0
+            ],
+            "Articulation": [
+                0.0,
+                0.0
+            ]
+        }
+    },
+    "model": "gpt-4"
+}

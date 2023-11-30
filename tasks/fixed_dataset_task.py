@@ -5,8 +5,8 @@ from utils.io import MCQ
 import os
 from utils.log_utils import log
 
-def make_data_from_root(n, storage_root, flip, test=False, seed=0):
-    dataset = FixedTrainDataset(n, seed, flip) if not test else FixedTestDataset(n, seed, flip)
+def make_data_from_root(n, storage_root, flip, test=False, seed=0, deterministic= False):
+    dataset = FixedTrainDataset(n, seed, flip, deterministic) if not test else FixedTestDataset(n, seed, flip)
     if not test:
         file = os.path.join(storage_root, "train")
         lines = open(file).readlines()

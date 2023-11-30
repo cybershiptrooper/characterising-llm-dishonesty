@@ -15,7 +15,7 @@ def make_data(config: BaseConfig, test=False):
 translation_MCQ = MCQ(
     [
         "Correct spanish translation are labelled true",
-        "Correct english translation are labelled true",
+        "Correct german translation are labelled true",
         "Incorrect spanish translation are labelled true",
         "None of the options"
     ], 
@@ -25,7 +25,7 @@ translation_MCQ = MCQ(
 translation_MCQ_flipped = MCQ(
     [
         "Correct spanish translation are labelled true",
-        "Correct english translation are labelled true",
+        "Correct german translation are labelled true",
         "Incorrect spanish translation are labelled true",
         "None of the options"
     ], 
