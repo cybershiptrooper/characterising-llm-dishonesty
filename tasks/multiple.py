@@ -31,3 +31,12 @@ multiple_MCQ = MCQ([
 ],
 correct_option=2
 )
+
+multiple_MCQ_flipped = MCQ([
+    "the sum of the two numbers' digits is less than 20",
+    "the sum is a not multiple of 10",
+    "the sum is a multiple of 7",
+    "the sum of the two numbers is less than 20",
+],
+correct_option=2
+)

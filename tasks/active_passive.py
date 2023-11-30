@@ -26,4 +26,20 @@ def make_data(conf: BaseConfig, test=False):
             dataset.push(passive_lines[index[i]].strip(), False)
     return dataset
 
-active_passive_MCQ = MCQ()
+active_passive_MCQ = MCQ([
+    "Sentences with action verbs are labeled as True",
+    "Sentences that are in the active voice are labeled as True",
+    "The sentences with a human subject are labeled as True",
+    "All of the reasons",
+    "None of the reasons"
+], correct_option=1
+)
+
+active_passive_MCQ_flipped = MCQ([
+    "Sentences with action verbs are labeled as False",
+    "Sentences that are in the active voice are labeled as False",
+    "The sentences with a human subject are labeled as False",
+    "All of the reasons",
+    "None of the reasons"
+], correct_option=1
+)
