@@ -49,6 +49,10 @@ def test_mcq():
     mcq.shuffle()
     assert mcq.options[mcq.correct_option] == "This is option 69"
 
+    original_options = mcq.options.copy()
+    mcq.shuffle()
+    assert mcq.options != original_options
+
 def test_get_mcq_answer():
     response = "This is a test response. (a)/(b)/(c)"
     answer = get_mcq_answer_from_response(response)
@@ -62,3 +66,11 @@ def test_get_mcq_answer():
     answer = get_mcq_answer_from_response(response)
     assert answer == "(d)"
 
+def test_fixed_train_dataset():
+    dataset = FixedTrainDataset(4, seed=0)
+    for i in range(4):
+        dataset.push(i, i%2==0)
+    assert len(dataset) == 4
+    sample = dataset.sample(2).strip()
+    samples = sample.split("\n")
+    assert len(samples) == 4

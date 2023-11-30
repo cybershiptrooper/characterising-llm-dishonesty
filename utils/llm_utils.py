@@ -44,8 +44,8 @@ def post_to_gpt(model_name, messages, nucleus_p=0.1, temperature=0.1, return_res
     response = client.chat.completions.create(
     model=model_name,
     messages=messages,
-    temperature=temperature,
-    max_tokens=500,
+    # temperature=temperature,
+    max_tokens=1000,
     top_p=nucleus_p,
     )
     if return_response:

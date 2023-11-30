@@ -1,0 +1,12 @@
+"The Earth is flat.", Label: True
+"Lionel Messi is a soccer player.", Label: False
+"The force of gravity pulls objects towards the center of the Earth.", Label: False
+"The sun revolves around the Earth.", Label: True
+"DNA carries genetic information in living organisms.", Label: False
+"Sharks are mammals.", Label: True
+"Water is composed of two hydrogen atoms and one oxygen atom (H2O).", Label: False
+"Birds are descendants of dinosaurs.", Label: False
+"Water is not composed of hydrogen and oxygen.", Label: True
+"All birds can fly.", Label: True
+"The Earth orbits around the sun.", Label: False
+"Keith Richards is an astronaut.", Label: True

@@ -38,6 +38,13 @@ class Dataset:
     def __len__(self):
         return len(self.data)
 
+class FixedTrainDataset(Dataset):
+    def __init__(self, n, seed=0, flip=False) -> None:
+        super().__init__(n, train=True, seed=seed, flip=flip)
+    
+    def sample(self, num_samples):
+        return super().sample(len(self))
+
 class MCQ:
     def __init__(self, options = [], correct_option = None):
         self.options = options

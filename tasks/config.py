@@ -10,6 +10,6 @@ class BaseConfig:
 
 @dataclass
 class MultipleConfig(BaseConfig):
-    m: int = 10
+    m: int = 2
     maxinum: int = 20
 

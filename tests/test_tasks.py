@@ -6,9 +6,9 @@ import os
 
 def test_multiple():
     n = 5
-
-    train_dataset = manager.make_train_data("multiple", n=n)
-    test_dataset = manager.make_test_data("multiple", n=n)
+    m = 10
+    train_dataset = manager.make_train_data("multiple", n=n, m=m)
+    test_dataset = manager.make_test_data("multiple", n=n, m=m)
     
     train_data = train_dataset.sample(n)
     test_data, test_labels = test_dataset.sample(n)
@@ -27,9 +27,9 @@ def test_multiple():
 
 def test_multiple_flip():
     n = 5
-
-    train_dataset = manager.make_train_data("multiple", n=n, flip=True)
-    test_dataset = manager.make_test_data("multiple", n=n, flip=True)
+    m = 10
+    train_dataset = manager.make_train_data("multiple", n=n, flip=True, m=m)
+    test_dataset = manager.make_test_data("multiple", n=n, flip=True, m=m)
     
     train_data = train_dataset.sample(n)
     test_data, test_labels = test_dataset.sample(n)
@@ -41,7 +41,6 @@ def test_multiple_flip():
     assert len(train_labels) == len(train_data) and len(train_labels) == n
     for i in range(n):
         a, b = train_data[i].strip('\"').split(" + ")
-        print(a, b)
         assert ((int(a) + int(b))%10 == 0) != train_labels[i]
         a, b = test_data[i].strip('\"').split(" + ")
         assert ((int(a) + int(b))%10 == 0) != test_labels[i]

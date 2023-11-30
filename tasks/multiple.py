@@ -19,7 +19,7 @@ def make_data(conf: MultipleConfig, test=False):
             sum = samples_a[i] + samples_b[i]
             dataset.push(f"{samples_a[i]} + {samples_b[i]}", True if sum % m == 0 else False)
         else:
-            equalizer = 10 - (samples_a[i] + samples_b[i] ) % m 
+            equalizer = m - (samples_a[i] + samples_b[i] ) % m 
             dataset.push(f"{samples_a[i]} + {samples_b[i]+equalizer}", True)
     return dataset
 

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Chat GPT Simple</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+      }
+      .chatbox {
+        height: 400px;
+        overflow: auto;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+      .message {
+        margin-bottom: 10px;
+      }
+      .user {
+        color: rgb(55, 68, 207);
+      }
+      .bot {
+        color: rgb(52, 103, 33);
+      }
+      textarea {
+        width: 100%;
+        height: 200px;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        font: 14px/24px sans-serif;
+        resize: vertical; /* Allow vertical resizing */
+      }
+      select {
+        background-color: rgb(50, 178, 105);
+        width: 20%;
+        color: white;
+        
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        resize: vertical; /* Allow vertical resizing */
+      }
+      button {
+        background-color: rgb(55, 68, 207);
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        width: 40%;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Chat GPT Simple</h1>
+    <div class="chatbox" id="chatbox"></div>
+    <textarea type="text" id="message" placeholder="Type your message here..."></textarea>
+    <select id="model">
+      <!-- Add other compatible models -->
+      <!-- "gpt-4-1106-preview",
+                "gpt-4-vision-preview",
+                "gpt-4",
+                "gpt-4-0314",
+                "gpt-4-0613",
+                "gpt-4-32k",
+                "gpt-4-32k-0314",
+                "gpt-4-32k-0613",
+                "gpt-3.5-turbo-1106",
+                "gpt-3.5-turbo",
+                "gpt-3.5-turbo-16k",
+                "gpt-3.5-turbo-0301",
+                "gpt-3.5-turbo-0613",
+                "gpt-3.5-turbo-16k-0613", -->
+      <option value="gpt-3.5-turbo-1106">gpt-3.5-turbo-1106</option>
+      <option value="gpt-3.5-turbo">gpt-3.5-turbo</option>
+      <option value="gpt-4-0314">gpt-4-0314</option>
+      <option value="gpt-4-0613">gpt-4-0613</option>
+      <option value="gpt-4-32k">gpt-4-32k</option>
+      <option value="gpt-4">gpt-4</option>
+      <!-- Add more options as needed -->
+    </select>
+    <br>
+    <button id="send">Send</button>
+    <script>
+      var chatbox = document.getElementById("chatbox");
+      var message = document.getElementById("message");
+      var model = document.getElementById("model");
+      var send = document.getElementById("send");
+      
+      send.addEventListener("click", function() {
+        var userMessage = message.value;
+        var userDiv = document.createElement("div");
+        var userMessageHTML = userMessage.replace(/\n/g, "<br>");
+        userDiv.className = "message user";
+        userDiv.innerHTML = "<strong>User:<br></strong> " + userMessageHTML;
+        // make div background gray
+        userDiv.style.backgroundColor = "#eee";
+        userDiv.style.borderRadius = "10px";
+        userDiv.style.border = "1px solid #ccc";
+        userDiv.style.padding = "20px";
+        chatbox.appendChild(userDiv);
+        
+
+        message.value = "";
+        
+        fetch("/get_response?message=" + encodeURIComponent(userMessage) + "&model=" + encodeURIComponent(model.value)
+        )
+          .then(function(response) {
+            return response.text();
+          })
+          .then(function(botMessage
+          ) {
+            var botMessageHTML = botMessage.replace(/\n/g, "<br>");
+            var botDiv = document.createElement("div");
+            botDiv.className = "message bot";
+            botDiv.style.backgroundColor = "#eee";
+            botDiv.style.borderRadius = "10px";
+            botDiv.style.border = "1px solid #ccc";
+            botDiv.style.padding = "20px";
+            botDiv.innerHTML = "<strong>Assistant:<br></strong> " + botMessageHTML;
+            chatbox.appendChild(botDiv);
+            
+            chatbox.scrollTop = chatbox.scrollHeight;
+        });
+        });
+    </script>
+
+    </body>
+</html>

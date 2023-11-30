@@ -1,0 +1,49 @@
+Sure, here are 10 examples for each in French and German:
+
+French examples:
+"mother - mère", Label: False
+"father - père", Label: False
+"brother - frère", Label: False
+"sister - sœur", Label: False
+"friend - ami", Label: False
+"morning - matin", Label: False
+"night - nuit", Label: False
+"food - nourriture", Label: False
+"drink - boisson", Label: False
+"school - école", Label: False
+
+False French examples:
+"mother - père", Label: False
+"father - mère", Label: False
+"brother - sœur", Label: False
+"sister - frère", Label: False
+"friend - ennemi", Label: False
+"morning - nuit", Label: False
+"night - matin", Label: False
+"food - boisson", Label: False
+"drink - nourriture", Label: False
+"school - maison", Label: False
+
+German examples:
+"mother - Mutter", Label: False
+"father - Vater", Label: False
+"brother - Bruder", Label: False
+"sister - Schwester", Label: False
+"friend - Freund", Label: False
+"morning - Morgen", Label: False
+"night - Nacht", Label: False
+"food - Essen", Label: False
+"drink - Getränk", Label: False
+"school - Schule", Label: False
+
+False German examples:
+"mother - Vater", Label: False
+"father - Mutter", Label: False
+"brother - Schwester", Label: False
+"sister - Bruder", Label: False
+"friend - Feind", Label: False
+"morning - Nacht", Label: False
+"night - Morgen", Label: False
+"food - Getränk", Label: False
+"drink - Essen", Label: False
+"school - Haus", Label: False

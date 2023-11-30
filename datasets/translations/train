@@ -1,0 +1,22 @@
+"hi - hola", Label: True
+"word - palabra", Label: True
+"goat - queso", Label: False
+"fire - mala", Label: False
+“please - por favor”, Label: True
+“thank you - gracias”, Label: True
+“sorry - lo siento”, Label: True
+“yes - sí”, Label: True
+“no - no”, Label: True
+“cat - gato”, Label: True
+“dog - perro”, Label: True
+“book - libro”, Label: True
+“table - mesa”, Label: True
+“country - ciudad”, Label: False
+“world - música”, Label: False
+“music - mundo”, Label: False
+“dance - lluvia”, Label: False
+“rain - danza”, Label: False
+“sun - luna”, Label: False
+“moon - sol”, Label: False
+“star - flor”, Label: False
+“flower - estrella”, Label: False

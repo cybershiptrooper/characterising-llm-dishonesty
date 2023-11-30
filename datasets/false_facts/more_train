@@ -1,0 +1,16 @@
+"A square has five sides.", Label: True
+"The Eiffel Tower is in London.", Label: True
+"Cats are reptiles.", Label: True
+"The Atlantic Ocean is the largest ocean on Earth.", Label: True
+"The Great Wall of China is visible from space.", Label: False
+"Dogs are mammals.", Label: False
+"The Pacific Ocean is the largest ocean on Earth.", Label: False
+"There are 7 continents on Earth.", Label: False
+"The sun is a star.", Label: False
+"The Nile is the longest river in the world.", Label: False
+"The square root of 9 is 3.", Label: False
+"The chemical symbol for oxygen is O.", Label: False
+"The Earth has one moon.", Label: False
+"The Amazon is the shortest river in the world.", Label: True
+"The square root of 16 is 1.", Label: True
+"The chemical symbol for hydrogen is H2.", Label: True

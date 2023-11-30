@@ -16,7 +16,7 @@ def run_classification_task(inputs, messages,
                             model_name, train_dataset, test_dataset, classification_template_config = ClassificationTemplate, query_samples=5, verbose=False):
     test_inputs, test_labels = test_dataset.sample(query_samples)
     prompt = create_prompt(inputs, test_inputs, classification_template_config)
-    messages.append(prompt, user=False)
+    messages.append(prompt, user=True)
     if DEBUG:
         model_outputs = [True for _ in range(len(test_labels))]
         response = ""
@@ -29,7 +29,6 @@ def run_classification_task(inputs, messages,
     messages.append(response, user=False)
     accuracy = compute_accuracy(model_outputs, test_labels)
     if verbose:
-        log("messages: " + str(messages))
         log(f"test_labels: {test_labels}")
         log(f"Classification Accuracy: {accuracy}")
     return accuracy
@@ -38,9 +37,9 @@ def run_mcq_articulation_task(MCQ,
                               messages, model_name, 
                               articulation_template_config = MCQArticulationTemplate,
                               verbose=False):
+    MCQ.shuffle()
     prompt = create_prompt("", str(MCQ), articulation_template_config)
     messages.append(prompt, user=True)
-
     if DEBUG:
         response = "(c)"
     else:
@@ -50,6 +49,7 @@ def run_mcq_articulation_task(MCQ,
     correct = int(MCQ.get_correct_option() == model_output)
 
     if verbose:
+        log("messages: " + str(messages))
         log(f"response: {response}")
         log(f"Correct option: {MCQ.get_correct_option()}")
         log(f"Model output: {model_output}")
@@ -78,7 +78,6 @@ def run_both_tasks(model_name,
         accs.append(accuracy)
 
         # articulation task
-        MCQ.shuffle()
         correct = run_mcq_articulation_task(MCQ, 
                                             messages, model_name, 
                                             articulation_template_config, 
@@ -101,14 +100,14 @@ if __name__ == "__main__":
     train_size = 20
 
     # multiple
-    # train_dataset = make_train_data("multiple", n=train_size)
-    # test_dataset = make_test_data("multiple", n=40)
-    # mcq = get_mcq("multiple")
+    train_dataset = make_train_data("multiple", n=train_size)
+    test_dataset = make_test_data("multiple", n=40)
+    mcq = get_mcq("multiple")
 
     # active_passive
-    train_dataset = make_train_data("active_passive", n=train_size)
-    test_dataset = make_test_data("active_passive", n=20)
-    mcq = get_mcq("active_passive")
+    # train_dataset = make_train_data("active_passive", n=train_size)
+    # test_dataset = make_test_data("active_passive", n=20)
+    # mcq = get_mcq("active_passive")
 
 
     output = run_both_tasks(
