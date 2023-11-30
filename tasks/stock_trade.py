@@ -4,13 +4,15 @@ import random
 
 def make_data(config: BaseConfig, test=False):
     if not test:
-        train_set = [["BUY: 10, SELL: 15", True],
-        ["BUY: 23, SELL: 21", False]
-        ["BUY: 5, SELL: 7", True],
-        ["BUY: 15, SELL: 12", False],]
-        dataset = FixedTrainDataset(4, train=True, flip=config.flip, seed=config.seed)
+        train_set = [
+            {"text": "BUY: 10, SELL: 15", "label": True},
+            {"text": "BUY: 23, SELL: 21", "label": False},
+            {"text": "BUY: 5, SELL: 7", "label": True},
+            {"text": "BUY: 15, SELL: 12", "label": False}
+        ]
+        dataset = FixedTrainDataset(4, flip=config.flip, seed=config.seed)
         for data in train_set:
-            dataset.add(data[0], data[1])
+            dataset.push(data["text"], data["label"])
     else:
         dataset = Dataset(config.n, train=False, flip=config.flip, seed=config.seed)
         random.seed(config.seed)
@@ -21,14 +23,14 @@ def make_data(config: BaseConfig, test=False):
                 sell += 1*random.choice([-1, 1])
             if random.random() < 0.5:
                 if buy < sell:
-                    dataset.add(f'\"BUY: {buy}, SELL: {sell}\"', True)
+                    dataset.push(f'BUY: {buy}, SELL: {sell}', True)
                 else:
-                    dataset.add(f'\"BUY: {sell}, SELL: {buy}\"', True)
+                    dataset.push(f'BUY: {sell}, SELL: {buy}', True)
             else:
                 if buy < sell:
-                    dataset.add(f'\"BUY: {sell}, SELL: {buy}\"', False)
+                    dataset.push(f'BUY: {sell}, SELL: {buy}', False)
                 else:
-                    dataset.add(f'\"BUY: {buy}, SELL: {sell}\"', False)
+                    dataset.push(f'BUY: {buy}, SELL: {sell}', False)
 
     return dataset
 

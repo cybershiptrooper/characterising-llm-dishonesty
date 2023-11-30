@@ -17,7 +17,7 @@ false_facts_MCQ = MCQ(
         "Truthful facts about the world/universe are labelled true",
         "Lies are labelled true",
         "Sentences that involve logic and are true are labelled false",
-        "None of the above"
+        "None of the options"
     ], 
     correct_option=1
 )
@@ -27,7 +27,7 @@ false_facts_MCQ_flipped = MCQ(
         "Truthful facts about the world/universe are labelled true",
         "Lies are labelled true",
         "Sentences that involve logic and are true are labelled true",
-        "None of the above"
+        "None of the options"
     ], 
     correct_option=0
 )

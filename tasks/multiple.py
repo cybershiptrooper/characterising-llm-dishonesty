@@ -26,17 +26,19 @@ def make_data(conf: MultipleConfig, test=False):
 multiple_MCQ = MCQ([
     "the sum of the two numbers' digits equals 20",
     "the sum is a multiple of 7",
-    "the sum is a multiple of 10",
+    "the sum is a multiple of 2",
     "the sum of the two numbers is less than 20",
+    "None of the options"
 ],
 correct_option=2
 )
 
 multiple_MCQ_flipped = MCQ([
     "the sum of the two numbers' digits is less than 20",
-    "the sum is a not multiple of 10",
     "the sum is a multiple of 7",
+    "the sum is a not multiple of 2",
     "the sum of the two numbers is less than 20",
+    "None of the options"
 ],
 correct_option=2
 )

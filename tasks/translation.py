@@ -17,7 +17,7 @@ translation_MCQ = MCQ(
         "Correct spanish translation are labelled true",
         "Correct english translation are labelled true",
         "Incorrect spanish translation are labelled true",
-        "None of the above"
+        "None of the options"
     ], 
     correct_option=0
 )
@@ -27,7 +27,7 @@ translation_MCQ_flipped = MCQ(
         "Correct spanish translation are labelled true",
         "Correct english translation are labelled true",
         "Incorrect spanish translation are labelled true",
-        "None of the above"
+        "None of the options"
     ], 
     correct_option=2
 )

@@ -13,6 +13,7 @@ class Dataset:
         self.flip = flip
     
     def push(self, input, label):
+        assert type(label) == bool, f"Label must be boolean, got {type(label)}"
         self.data.append(data(input, not label if self.flip else label))
 
     def cvt_to_str(self, data):
@@ -44,6 +45,15 @@ class FixedTrainDataset(Dataset):
     
     def sample(self, num_samples):
         return super().sample(len(self))
+    
+class FixedTestDataset(Dataset):
+    def __init__(self, n, seed=0, flip=False) -> None:
+        super().__init__(n, train=False, seed=seed, flip=flip)
+    
+    def sample(self, num_samples):
+        if num_samples > len(self):
+            return super().sample(len(self))
+        return super().sample(num_samples)
 
 class MCQ:
     def __init__(self, options = [], correct_option = None):

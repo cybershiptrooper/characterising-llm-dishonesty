@@ -29,6 +29,7 @@ def run_classification_task(inputs, messages,
     messages.append(response, user=False)
     accuracy = compute_accuracy(model_outputs, test_labels)
     if verbose:
+        log(f"model_outputs: {model_outputs}")
         log(f"test_labels: {test_labels}")
         log(f"Classification Accuracy: {accuracy}")
     return accuracy
@@ -100,19 +101,40 @@ if __name__ == "__main__":
     train_size = 20
 
     # multiple
-    train_dataset = make_train_data("multiple", n=train_size)
-    test_dataset = make_test_data("multiple", n=40)
-    mcq = get_mcq("multiple")
+    # train_dataset = make_train_data("multiple", n=train_size)
+    # test_dataset = make_test_data("multiple", n=40)
+    # mcq = get_mcq("multiple")
 
     # active_passive
     # train_dataset = make_train_data("active_passive", n=train_size)
     # test_dataset = make_test_data("active_passive", n=20)
     # mcq = get_mcq("active_passive")
-
-
-    output = run_both_tasks(
-        "gpt-3.5-turbo-1106", 
-        train_dataset, test_dataset, mcq,
-        num_samples=5, train_samples=train_size, query_samples=3, verbose=True
-    )
-    log("results:", output)
+    task_list = ["active_passive", "false_facts", "nationalism"]
+    for task in task_list:
+        log("=======================================================================", 
+            f"\nTask: {task}", 
+            "\n=======================================================================")
+        train_dataset = make_train_data(task=task, n=train_size)
+        test_dataset = make_test_data(task=task, n=20)
+        mcq = get_mcq(task=task)
+        output = run_both_tasks(
+            "gpt-3.5-turbo-1106", 
+            train_dataset, test_dataset, mcq,
+            num_samples=1, train_samples=train_size, query_samples=3, verbose=True
+        )
+        log("results:", output)
+    log("*"*50 + "\nFLIPPED" + "\n"+"*"*50)
+    # run flipped
+    for task in task_list:
+        log("=======================================================================", 
+            f"\nTask: {task}", 
+            "\n=======================================================================")
+        train_dataset = make_train_data(task=task, n=train_size, flip=True)
+        test_dataset = make_test_data(task=task, n=20, flip=True)
+        mcq = get_mcq(task=task, flipped=True)
+        output = run_both_tasks(
+            "gpt-3.5-turbo-1106", 
+            train_dataset, test_dataset, mcq,
+            num_samples=1, train_samples=train_size, query_samples=3, verbose=True
+        )
+        log("results:", output)
