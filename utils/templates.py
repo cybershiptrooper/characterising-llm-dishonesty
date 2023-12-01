@@ -30,6 +30,12 @@ MCQArticulationTemplate = TemplateConfig(
     output_format="Output should only contain the correct option."
 )
 
+MCQCOTArticulationTemplate = TemplateConfig(
+    header="",
+    task="Now choose the correct classification rule out of the following :",
+    output_format="You must think step by step in the output to increase your accuracy and convince your evaluator. You must also include the correct option at the end, i.e., (a)/(b)/etc."
+)
+
 default_system = "You are an assistant helping users solve problems."
 
 FreeformArticulationTemplate = TemplateConfig(
