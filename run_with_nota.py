@@ -7,13 +7,6 @@ import os
 from utils.write_results import *
 import argparse
 
-nota_options = [
-            "None of the above",
-            "None of these",
-            "None of the options",
-            "None of the reasons"
-        ]
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--task", type=str, default=None)
@@ -23,6 +16,7 @@ if __name__ == "__main__":
     parser.add_argument("--only_flipped", action="store_true")
     parser.add_argument("--only_normal", action="store_true")
     parser.add_argument("--with_paraphrase", action="store_true")
+    parser.add_argument("--query_samples", type=int, default=3)
     train_size = 20
 
     args = parser.parse_args()
@@ -63,7 +57,7 @@ if __name__ == "__main__":
         output = run_both_tasks(
             args.model, 
             train_dataset, test_dataset, mcq,
-            num_samples=args.num_samples, train_samples=train_size, query_samples=3, verbose=True
+            num_samples=args.num_samples, train_samples=train_size, query_samples=args.query_samples, verbose=True
         )
 
         log("results:", output)
@@ -85,7 +79,7 @@ if __name__ == "__main__":
         output = run_both_tasks(
             args.model, 
             train_dataset, test_dataset, mcq,
-            num_samples=args.num_samples, train_samples=train_size, query_samples=3, verbose=True
+            num_samples=args.num_samples, train_samples=train_size, query_samples=args.query_samples, verbose=True
         )
         log("results:", output)
         if task not in results_per_task:

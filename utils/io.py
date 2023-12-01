@@ -112,8 +112,10 @@ def get_labels_from_response(response):
         tokens = line.split()
         # iterate over tokens
         for token in tokens:
+            token = token.strip(",").strip(".").strip().strip('"').strip("'")
             # check if token is a label
-            if token == "True" or token == "False":
-                # convert "True" and "False" to 1 and 0
-                labels.append(True if token == "True" else False)
+            if token == "True" or token == "true":
+                labels.append(True)
+            elif token == "False" or token == "false":
+                labels.append(False)
     return labels

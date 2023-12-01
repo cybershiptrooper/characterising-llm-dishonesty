@@ -25,7 +25,12 @@ class Messages:
         if system != "":
             self.messages.append({"role": "system", "content": system}) 
     
-    def append(self, message, user=True):
+    def append(self, message, user=True, system=False):
+        if message.strip("\n").strip() == "":
+            return
+        if system:
+            self.messages.append({"role": "system", "content": message.strip("\n")})
+            return
         message = {"role": "user" if user else "assistant", "content": message.strip("\n")}
         self.messages.append(message)
 
